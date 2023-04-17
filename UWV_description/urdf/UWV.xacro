@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<robot name="UWV" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find UWV_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find UWV_description)/urdf/UWV.trans" />
+<xacro:include filename="$(find UWV_description)/urdf/UWV.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-1.3997590337121873e-07 1.3961798364906141e-08 0.3551309326758064" rpy="0 0 0"/>
+    <mass value="41.7013767841429"/>
+    <inertia ixx="1.629796" iyy="1.629818" izz="0.051274" ixy="0.0" iyz="-0.0" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://UWV_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://UWV_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="propellor_1">
+  <inertial>
+    <origin xyz="7.264684542818145e-08 -1.1446328551656393e-07 -0.0044027513150938224" rpy="0 0 0"/>
+    <mass value="0.02190685278746915"/>
+    <inertia ixx="8e-06" iyy="8e-06" izz="1.4e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://UWV_description/meshes/propellor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.775" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://UWV_description/meshes/propellor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 2" type="continuous">
+  <origin xyz="0.0 0.0 0.775" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="propellor_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+</robot>
