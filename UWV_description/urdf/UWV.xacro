@@ -3,7 +3,9 @@
 
 <xacro:include filename="$(find UWV_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find UWV_description)/urdf/UWV.trans" />
-<xacro:include filename="$(find UWV_description)/urdf/UWV.gazebo" />
+<xacro:include filename="$(find UWV_description)/gazebo/uvw_materials.gazebo" />
+<xacro:include filename="$(find UWV_description)/gazebo/uwv_physics.gazebo" />
+<xacro:include filename="$(find UWV_description)/gazebo/uwv_plugins.gazebo" />
 <link name="base_link">
   <inertial>
     <origin xyz="-1.3997590337121873e-07 1.3961798364906141e-08 0.3551309326758064" rpy="0 0 0"/>
